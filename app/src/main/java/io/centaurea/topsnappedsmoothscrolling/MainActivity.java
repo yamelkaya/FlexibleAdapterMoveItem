@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new FlexibleAdapter(items);
         adapter.setDisplayHeadersAtStartUp(true)
                 .setAnimationOnScrolling(true);
+        adapter.enableLogs(true);
         list.setAdapter(adapter);
         list.setLayoutManager(new SmoothScrollLinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
 //        numberPicker = ((NumberPicker)findViewById(R.id.position));
@@ -62,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void move(){
         int firstPosition = ((LinearLayoutManager) list.getLayoutManager()).findFirstVisibleItemPosition();
-        adapter.updateItem(adapter.getItem(firstPosition),null);
         adapter.moveItem(firstPosition,firstPosition + 3);
     }
 
